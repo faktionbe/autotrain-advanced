@@ -85,7 +85,7 @@ def train(config):
                     token=config.token,
                 )
 
-    classes = train_data.features[config.target_column].names
+    classes = list(set(train_data[config.target_column]))
     label2id = {c: i for i, c in enumerate(classes)}
     num_classes = len(classes)
 
